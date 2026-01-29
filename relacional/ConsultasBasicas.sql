@@ -1,0 +1,2 @@
+
+SELECT * from relacional.clientes;
