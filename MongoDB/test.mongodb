@@ -1,0 +1,22 @@
+use('xpto5')
+
+db.createCollection('Pessoa')
+
+show dbs
+
+db.Pessoa.insertOne({nome: "Cleber", idade: 17})
+
+db.Pessoa.insertMany([{nome: "Maria", idade: 74}, {nome: "João", idade: 35}])
+
+db.Pessoa.find()
+
+db.Pessoa.find({nome: "Cleber"})
+
+db.Pessoa.deleteOne({nome: "Cleber"})
+
+db.Pessoa.find({idade:{$gt : 25}})
+
+db.Pessoa.find({idade:{$lt : 25}})
+
+db.Pessoa.find().sort({idade:-1})
+
