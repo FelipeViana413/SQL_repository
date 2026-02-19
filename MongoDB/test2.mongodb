@@ -1,0 +1,112 @@
+db.getMongo().getDBs()
+
+use('webCar')
+
+db.createCollection("Carro")
+
+db.insertOne({
+    marca: "Fiat", 
+    modelo: "toro", 
+    valor: 87.251,
+    potencia: 1.6,
+})
+
+db.Carro.insertMany([
+{
+    marca: "volkswagen", 
+    modelo: "gol", 
+    valor:63.985, 
+    potencia:1.0
+}, 
+{
+    marca: "fiat", 
+    modelo: "palio", 
+    valor:75.962, 
+    potencia:1.4
+},
+{
+    marca: "fiat", 
+    modelo: "argo", 
+    valor:83.698, 
+    potencia:1.8
+},
+{
+    marca: "chevrolet", 
+    modelo: "cruzes", 
+    valor:98.426, 
+    potencia:2.0
+},
+{
+    marca: "peugeot", 
+    modelo: "207", 
+    valor:7.439, 
+    potencia:1.3
+},
+{
+    marca: "chevrolet", 
+    modelo: "corsa", 
+    valor:18.742, 
+    potencia:1.2
+},
+{
+    marca: "chevrolet", 
+    modelo:  "tracker", 
+    valor:152.321, 
+    potencia:1.8
+},
+{
+    marca: "peugeot", 
+    modelo: "2008", 
+    valor:35.741, 
+    potencia:1.6
+},
+{
+    marca: "volkswagen", 
+    modelo: "golf", 
+    valor:93.985, 
+    potencia:1.0
+},
+{
+    marca: "chevrolet", 
+    modelo: "onix", 
+    valor:52.571, 
+    potencia:1.8
+},
+{
+    marca: "honda", 
+    modelo: "HR-v", 
+    valor:169.985, 
+    potencia:2.0
+},
+{
+    marca: "honda", 
+    modelo: "civic", 
+    valor:257.524, 
+    potencia:1.6
+},
+])
+
+db.Carro.find()
+
+db.Carro.find({marca:"honda"})
+
+db.Carro.find({marca: "honda"}).count()
+
+db.Carro.find().count()
+
+db.Carro.updateOne({modelo: "HR-v"}, 
+    {$set:{modelo:"HR-v turing"}})
+
+db.Carro.deleteOne( { modelo:"HR-v turing" } )
+
+db.Carro.find({valor: {$gt: 40000}})
+
+db.Carro.find({valor: {$lt: 40000}})
+
+db.Carro.find({valor: {$lte: 40000}})
+
+db.Carro.find().sort({valor: 1})
+
+db.Carro.find({marca:"fiat"}).sort({valor: -1})
+
+db.Carro.distinct(marca)

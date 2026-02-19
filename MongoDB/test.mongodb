@@ -20,3 +20,4 @@ db.Pessoa.find({idade:{$lt : 25}})
 
 db.Pessoa.find().sort({idade:-1})
 
+show dbs
